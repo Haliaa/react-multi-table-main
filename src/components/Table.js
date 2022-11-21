@@ -20,20 +20,34 @@
 
 import TableBody from "./TableBody";
 import TableHead from "./TableHead";
-import { useSortableTable } from "../useSortableTable";
+import {useSortableTable} from "../useSortableTable";
+import {DragDropContext} from "react-beautiful-dnd";
+import {useState} from "react";
 
-const Table = ({ caption, data, columns }) => {
-  const [tableData, handleSorting] = useSortableTable(data, columns);
+const Table = ({caption, data, columns}) => {
+    const [tableData, handleSorting] = useSortableTable(data, columns);
+    const [users, setUsers] = useState(tableData);
 
-  return (
-    <>
-      <table className="table">
-        <caption>{caption}</caption>
-        <TableHead {...{ columns, handleSorting }} />
-        <TableBody {...{ columns, tableData }} />
-      </table>
-    </>
-  );
+
+    const handleDragEnd = (result) => {
+        let tempUser = [...users];
+        let [selectedRow] = tempUser.splice(result.source.index, 1);
+        tempUser.splice(result.destination.index, 0, selectedRow)
+        setUsers(tempUser)
+        console.log(result, selectedRow)
+    };
+    return (
+        <div>
+            <table className="table">
+                <caption>{caption}</caption>
+                <DragDropContext onDragEnd={handleDragEnd}>
+                    <TableHead {...{columns, handleSorting}} />
+
+                    <TableBody {...{columns, tableData: users}} />
+                </DragDropContext>
+            </table>
+        </div>
+    );
 };
 
 export default Table;

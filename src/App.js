@@ -95,14 +95,15 @@ const columnsFromBackend = {
     }
 };
 const columnS = [
-  { label: "Full Name", accessor: "full_name", sortable: true },
-  { label: "Email", accessor: "email", sortable: false },
-  { label: "Gender", accessor: "gender", sortable: true, sortbyOrder: "desc" },
-  { label: "Age", accessor: "age", sortable: true },
-  { label: "Start date", accessor: "start_date", sortable: true },
+    {label: "Full Name", accessor: "full_name", sortable: true},
+    {label: "Email", accessor: "email", sortable: false},
+    {label: "Gender", accessor: "gender", sortable: true, sortbyOrder: "desc"},
+    {label: "Age", accessor: "age", sortable: true},
+    {label: "Start date", accessor: "start_date", sortable: true},
 ];
 
 const onDragEnd = (result, columns, setColumns) => {
+    console.log(result)
     if (!result.destination) return;
     const {source, destination} = result;
 
