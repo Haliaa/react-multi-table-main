@@ -26,37 +26,27 @@ import {useState} from "react";
 
 const Table = ({caption, data, columns}) => {
     const [tableData, handleSorting] = useSortableTable(data, columns);
-    const [finalTableData, setFinalTableData]  = useState(tableData);
+    const [users, setUsers] = useState(tableData);
 
-// function handleDragEnd (e) {
-//     if (!e.destination) return;
-//     let tempData = Array.from(finalTableData);
-//     let [source_data] = tempData.splice(e.source.index, 1);
-//     tempData.splice(e.destination.index, 0, source_data);
-//     setFinalTableData(tempData);
-//   }
 
-function handleDragEnd (e) {
-    if (!e.destination) return;
-    let tempData = Array.from(finalTableData);
-    let [source_data] = tempData.splice(e.source.index, 1);
-    tempData.splice(e.destination.index, 0, source_data);
-    setFinalTableData(tempData);
-  }
-
+    const handleDragEnd = (result) => {
+        let tempUser = [...users];
+        let [selectedRow] = tempUser.splice(result.source.index, 1);
+        tempUser.splice(result.destination.index, 0, selectedRow)
+        setUsers(tempUser)
+        console.log(result, selectedRow)
+    };
     return (
         <div>
-            <DragDropContext onDragEnd={handleDragEnd}>
-                <table className="table">
-                    <caption>{caption}</caption>
-                    <DragDropContext>
-                        <TableHead {...{columns, handleSorting}} />
+            <table className="table">
+                <caption>{caption}</caption>
+                <DragDropContext onDragEnd={handleDragEnd}>
+                    <TableHead {...{columns, handleSorting}} />
 
-                        <TableBody {...{columns, tableData:finalTableData}} />
-                    </DragDropContext>
-                </table>
-            </DragDropContext>
-            </div>
+                    <TableBody {...{columns, tableData: users}} />
+                </DragDropContext>
+            </table>
+        </div>
     );
 };
 
