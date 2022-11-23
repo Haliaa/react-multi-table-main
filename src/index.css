@@ -10,7 +10,7 @@ body {
     sans-serif;
 }
 
-/* 
+/*
 =================
 Table
 =====================
@@ -35,7 +35,7 @@ caption {
 }
 
 .table th {
-  background: #fff;
+  background: rgba(255, 111, 31, 0.71);
   padding: 8px 10px;
   border-bottom: 1px solid #1a1a1a;
   font-weight: bold;
@@ -69,7 +69,7 @@ th.down {
 }
 
 .table tbody tr:nth-child(n) td {
-  background: #eff0f0;
+  background: rgb(210, 210, 210);
 }
 
 .table tbody tr:nth-child(2n) td {

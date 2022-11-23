@@ -1,6 +1,6 @@
 import {Draggable, Droppable} from "react-beautiful-dnd";
 
-const TableBody = ({tableData, columns}) => {
+const TableBody = ({columns, tableData}) => {
     return (
         <Droppable droppableId="tbody">
             {(provided) => {
@@ -8,7 +8,10 @@ const TableBody = ({tableData, columns}) => {
                     <tbody ref={provided.innerRef} {...provided.droppableProps}>
                     {tableData.map((data, index) => {
                         return (
-                            <Draggable draggableId={data.full_name} index={index} key={data.full_name}>
+                            <Draggable
+                                draggableId={data.full_name}
+                                index={index}
+                                key={data.full_name}>
                                 {(provided) => {
                                     return (
                                         <tr
@@ -16,7 +19,7 @@ const TableBody = ({tableData, columns}) => {
                                             {...provided.draggableProps}
                                             key={data.id}>
                                             {columns.map(({accessor}) => {
-                                                const index = tableData.indexOf(data);
+                                                const index = tableData.indexOf(data)+1;
                                                 const tData = data[accessor] ? data[accessor] : index;
                                                 return <td {...provided.dragHandleProps} key={accessor}>{tData}</td>;
                                             })}
