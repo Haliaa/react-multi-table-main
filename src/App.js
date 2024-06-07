@@ -16,7 +16,7 @@ function App() {
     return (
         <div>
             <Table
-                caption="Program that keeps track of an ordered, numbered list of names"
+                caption="Drag and drop table. All data is faked."
                 data={tableData}
                 columns={columns}
             />
