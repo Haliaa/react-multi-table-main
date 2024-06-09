@@ -3,25 +3,17 @@
 
 ### To run projects locally on your machine do next steps.
 
-#### Clone this project
-You can download or clone this project by running this command from your terminal:
-
+Download or clone this project by running this command from your terminal:
 ```
 git clone https://github.com/Haliaa/react-multi-table-main
 ```
 
-This will create a directory in the name of the project folder.
-
-Next, switch inside the project directory and run:
-
+Install all the necessary dependencies in the local `node_modules` folder.
 ```
 npm install
 ```
 
-This will install all the necessary dependencies in the local `node_modules` folder.
-
-Finally, start your development server by running:
-
+Start app locally by running:
 ```
 npm start
 ```
