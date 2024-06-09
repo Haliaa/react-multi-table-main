@@ -1,4 +1,4 @@
-# React drag and drop sortable table. 
+# Drag and drop sortable table
 
 ### To run projects locally on your machine do next steps.
 
