@@ -1,7 +1,9 @@
-## React sortable table (https://github.com/Haliaa/react-multi-table-main)
+## React drag and drop sortable table.
+
+
+## To run projects locally on your machine do next steps.
 
 ### Clone this project
-
 You can download or clone this project by running this command from your terminal:
 
 ```
