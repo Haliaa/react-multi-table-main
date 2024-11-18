@@ -1,5 +1,9 @@
 # Drag and drop sortable table
 
+## Live Demo
+
+Explore the project live: [My Project Demo](https://haliaa.github.io/react-multi-table-main/)
+
 ### To run projects locally on your machine do next steps.
 
 Download or clone this project by running this command from your terminal:
